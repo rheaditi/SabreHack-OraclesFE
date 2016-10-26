@@ -1,1 +1,47 @@
-Custom Report Creator
+<div class="container">
+	<div class="page-header">
+	<h1>Create Custom Report</h1>
+</div>
+<div class="row">
+	<ul class="list-group">
+	<li class="list-group-item">
+		<h3>Select A Table</h3>
+		<div class="btn-group btn-group-justified">
+				<label class="btn btn-default" ng-model="request.tableName" uib-uncheckable="true" uib-btn-radio="'bookt'">Booking</label>
+				<label class="btn btn-default" ng-model="request.tableName" uib-uncheckable="true" uib-btn-radio="'airb'">Air</label>
+				<label class="btn btn-default" ng-model="request.tableName" uib-uncheckable="true" uib-btn-radio="'hotelb'">Hotel</label>
+				<label class="btn btn-default" ng-model="request.tableName" uib-uncheckable="true" uib-btn-radio="'carb'">Car</label>
+		</div>
+	</li>
+	<li class="list-group-item" ng-if="columnNamesLoaded">
+		<h3>Select columns</h3>
+		<div class="btn-group btn-group-justified">
+					<label ng-repeat="column in columns" class="btn btn-default" uib-btn-checkbox ng-model="column.checked">{{column.name}}</label>
+		</div>
+	</li>
+	<li class="list-group-item" ng-if="request.columns.length">
+		<h3>Where Clauses</h3>
+		<div class="input-group" ng-repeat="column in request.columns">
+			<div class="input-group-btn">
+				<button class="btn btn-default" style="min-width: 200px;">{{column.name}}</button>
+
+					<label class="btn btn-default" ng-model="column.operator" uib-btn-radio="'lesser'">&lt;</label>
+					<label class="btn btn-default" ng-model="column.operator" uib-btn-radio="'equals'">=</label>
+					<label class="btn btn-default" ng-model="column.operator" uib-btn-radio="'greater'">&gt;</label>
+				
+			</div>
+			<input type="text" class="form-control" ng-model="column.operand">
+		</div>
+	</li>
+	<li class="list-group-item" ng-if="stateIsValid">
+		<form class="input-group">
+      <input type="text" class="form-control" placeholder="Enter report name.." ng-model="request.reportName" required="true">
+      <span class="input-group-btn">
+        <button class="btn btn-info" type="submit" ng-click="saveReport(request.reportName)">Save Custom Report</button>
+      </span>
+    </form>
+	</li>
+	<li class="list-group-item" ng-if="resultsAvailable"></li>
+</ul>
+</div>
+</div>

@@ -1,4 +1,5 @@
-<div class="page-header">
+<div class="container-fluid">
+	<div class="page-header">
 	<h1>Offline vs. Online Bookings</h1>
 </div>
 <div class="row">
@@ -35,21 +36,19 @@
 
 	</div>
 
-	<div class="form-group row">
-			<div class="col-xs-11">
-				<label for="offlineType" class="col-xs-3"><input type="radio" name="offlineType" ng-model="offlineType" value="default" /> Default </label>
-				<label for="offlineType" class="col-xs-3"><input type="radio" name="offlineType" ng-model="offlineType" value="site" /> Site Comparison </label>
-				<label for="offlineType" class="col-xs-3"><input type="radio" name="offlineType" ng-model="offlineType" value="monthly" /> Monthly </label>
-				<label for="offlineType" class="col-xs-3"><input type="radio" name="offlineType" ng-model="offlineType" value="Weekly" /> Weekly </label>
-			</div>
-			<div class="col-xs-1">
-				<button class="btn btn-info pull-right">Get Report</button>
-			</div>
+	<div class="btn-group btn-group-justified">
+		<label class="btn btn-default" ng-model="offlineType" uib-uncheckable="true" uib-btn-radio="'default'">Summary</label>
+		<label class="btn btn-default" ng-model="offlineType" uib-uncheckable="true" uib-btn-radio="'site'">Site/Region Comparison</label>
+		<label class="btn btn-default" ng-model="offlineType" uib-uncheckable="true" uib-btn-radio="'year'">Yearly</label>
+		<label class="btn btn-default" ng-model="offlineType" uib-uncheckable="true" uib-btn-radio="'month'">Monthly</label>
 	</div>
+	<br />
+	<button class="btn btn-info btn-group-justified">Get Report</button>
 </form>
 </div>
+<br />
 <div class="row">
-	<div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2" ui-view="">
+	<div class="col-xs-10" ui-view="" ng-if="chartAvailable">
 	</div>
 </div>
- 
+</div>

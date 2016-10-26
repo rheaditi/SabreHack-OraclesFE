@@ -1,1 +1,48 @@
-Saved Reports
+<div class="container" ng-if="!reports.length">
+	<div class="page-header">
+		<h1>You have no saved reports.</h1>
+		<p><a ui-sref="customReport">Click here</a> to create a new custom report.</p>
+	</div>
+</div>
+
+<div class="container" ng-if="reports.length">
+<div class="row">
+	<div class="page-header">
+	<h1>Your Saved Reports</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="list-group col-xs-12">
+		<form class="list-group-item" ng-repeat="report in reports" ng-submit="getPDF(report)">
+			<h4 class="list-group-item-heading" ng-bind="report.reportName"></h4><button type="submit" class="btn btn-info pull-right" >Result as PDF</button>
+			<p class="list-group-item-text">
+				<p><strong>table name</strong>: <em>{{report.tableName}}</em></p>
+				<p>
+					<strong>clauses</strong>:
+					<p ng-repeat="clause in report.columns">column <em>{{clause.name}} {{clause.operator}} &quot;{{clause.operand}}&quot;</em></p>
+				</p>
+			</p>
+
+				<div class="row">
+				  <div class="col-sm-6">
+				    <div class="input-group">
+				      <span class="input-group-addon">
+				        From Date (YYYYMMdd):
+				      </span>
+				      <input type="text" class="form-control" required="true">
+				    </div><!-- /input-group -->
+				  </div><!-- /.col-sm-6 -->
+				  <div class="col-sm-6">
+				    <div class="input-group">
+				      <span class="input-group-addon">
+				        To Date (YYYYMMdd):
+				      </span>
+				      <input type="text" class="form-control" required="true">
+				    </div><!-- /input-group -->
+				  </div><!-- /.col-sm-6 -->
+				</div><!-- /.row -->
+
+		</form>
+	</div>
+</div>
+</div>

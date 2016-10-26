@@ -1,0 +1,31 @@
+<div class="col-xs-9">
+	<canvas
+			id="lineChart"
+			class="chart chart-line"
+			chart-data="data"
+			chart-labels="labels"
+			chart-series="series"
+			chart-options="options"
+			chart-colors="colors">
+	</canvas>
+</div>
+
+<div class="col-xs-3">
+<table class="table table-bordered" id="dataTable">
+	<tr>
+		<td></td>
+		<th ng-repeat="label in labels" ng-bind="label"></th>
+	</tr>
+	<tr>
+		<th ng-bind="series[0]"></th>
+		<td ng-repeat="datapoint in data[0]" ng-bind="datapoint"></td>
+	</tr>
+	<tr>
+		<th ng-bind="series[1]"></th>
+		<td ng-repeat="datapoint in data[1]" ng-bind="datapoint"></td>
+	</tr>
+</table>
+
+	<button class="btn btn-success" ng-click="saveToPDF()">Save PDF <i class="glyphicon glyphicon-download-alt"></i></button>
+
+</div>

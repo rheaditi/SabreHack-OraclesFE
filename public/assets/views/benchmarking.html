@@ -1,1 +1,53 @@
-<h1>Benchamrking</h1>
+<div class="container">
+	<div class="page-header row">
+		<h1>Benchmarking</h1>
+		<small>How Your Company Compares to Industry Averages</small>
+	</div>
+
+<div class="row">
+	<form class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2" ng-submit="getBenchMark(fromDate.date, toDate.date)">
+	<div class="form-group row">
+
+		<div class="col-xs-6">
+			<label for="from-date">From: </label>
+			<div class="input-group">		
+				<input	name="from-date" type="text" class="form-control" 
+								uib-datepicker-popup="dd MMMM yyyy" ng-model="fromDate.date" 
+								is-open="fromDate.opened" datepicker-options="dateOptions"
+								ng-required="true" close-text="Close" 
+								alt-input-formats="altInputFormats"/>
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="dateInputOpen('fromDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+				</span>
+			</div>
+		</div>
+
+		<div class="col-xs-6">
+			<label for="to-date">To: </label>
+			<div class="input-group">		
+				<input	name="to-date" type="text" class="form-control" 
+								uib-datepicker-popup="dd MMMM yyyy" ng-model="toDate.date" 
+								is-open="toDate.opened" datepicker-options="dateOptions"
+								ng-required="true" close-text="Close" 
+								alt-input-formats="altInputFormats"/>
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="dateInputOpen('toDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+				</span>
+			</div>
+		</div>
+
+	</div>
+	<div class="btn-group btn-group-justified">
+		<label class="btn btn-default" ng-model="benchMarkType" uib-uncheckable="true" uib-btn-radio="'month'">Monthly</label>
+		<label class="btn btn-default" ng-model="benchMarkType" uib-uncheckable="true" uib-btn-radio="'year'">Yearly</label>
+	</div>
+	<br />
+	<button class="btn btn-info btn-group-justified">Get Benchmark Results</button>
+</form>
+</div>
+
+<div class="row" style="margin-top: 20px;">
+	<div class="col-xs-10" ui-view="" ng-if="chartAvailable">
+	</div>
+</div>
+</div>

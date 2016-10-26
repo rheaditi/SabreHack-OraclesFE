@@ -25,15 +25,15 @@
 		</div>
 		<div class="collapse navbar-collapse" id="collapsed-navbar">
 			<ul class="nav navbar-nav">
-				<li ui-sref-active="active"><a ui-sref="staticReports">Static Reports <span class="sr-only">(current)</span></a></li>
+				<li ui-sref-active="active"><a ui-sref="staticReports">General Reports <span class="sr-only">(current)</span></a></li>
 				<li ui-sref-active="active"><a ui-sref="benchmarking">Benchmarking</a></li>
-				<li ui-sref-active="active"><a ui-sref="savedReports">Your Reports</a></li>	 
+				<li ui-sref-active="active"><a ui-sref="savedReports">Saved Reports</a></li>	 
 			</ul>
-			<div class="navbar-right">
-				<button type="button" class="btn btn-info navbar-btn" aria-label="Custom Report" ui-sref="customReport">
-					<span>Custom Report</span> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
-				</button>
-			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><button type="button" class="btn btn-info navbar-btn" ui-sref="customReport" style="margin-right: 15px">
+					<span style="margin-right: 15px">Custom Report</span> <span class="glyphicon glyphicon-plus"></span> 
+				</button></li>
+			</ul>
 		</div>
 	</div>
 </nav>
@@ -43,11 +43,13 @@
 	<script type="text/javascript" src="assets/js/angular.min.js"></script>
 	<script type="text/javascript" src="assets/js/angular-ui-router.min.js"></script>
 	<script type="text/javascript" src="assets/js/ui-bootstrap-tpls-2.2.0.js"></script>
-	<!-- <script type="text/javascript" src="assets/js/jquery-2.2.4.min.js"></script> -->
-	<!-- <script type="text/javascript" src="assets/js/bootstrap.min.js"></script> -->
 	<script type="text/javascript" src="assets/js/Chart.min.js"></script>
 	<script type="text/javascript" src="assets/js/angular-chart.min.js"></script>
+	<script type="text/javascript" src="assets/js/angular-storage.js"></script>
+	<script type="text/javascript" src="assets/js/modules/util.js"></script>
 	<script type="text/javascript" src="assets/js/app.js"></script>
+	<script type="text/javascript" src="assets/js/modules/routes.js"></script>
+	<script type="text/javascript" src="assets/js/modules/controllers.js"></script>
 </body>
 </html>
 

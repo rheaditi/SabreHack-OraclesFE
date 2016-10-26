@@ -1,1 +1,46 @@
-<h1>Spends Across LOBs</h1>
+<div class="container">
+<div class="row">
+<div class="page-header">
+	<h1>Analyse Cost across LOBs</h1>
+</div>
+<div class="row">
+<form class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2" ng-submit="getLobCost(fromDate.date, toDate.date)">
+	<div class="form-group row">
+
+		<div class="col-xs-6">
+			<label for="from-date">From: </label>
+			<div class="input-group">		
+				<input	name="from-date" type="text" class="form-control" 
+								uib-datepicker-popup="dd MMMM yyyy" ng-model="fromDate.date" 
+								is-open="fromDate.opened" datepicker-options="dateOptions"
+								ng-required="true" close-text="Close" 
+								alt-input-formats="altInputFormats"/>
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="dateInputOpen('fromDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+				</span>
+			</div>
+		</div>
+
+		<div class="col-xs-6">
+			<label for="to-date">To: </label>
+			<div class="input-group">		
+				<input	name="to-date" type="text" class="form-control" 
+								uib-datepicker-popup="dd MMMM yyyy" ng-model="toDate.date" 
+								is-open="toDate.opened" datepicker-options="dateOptions"
+								ng-required="true" close-text="Close" 
+								alt-input-formats="altInputFormats"/>
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="dateInputOpen('toDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+				</span>
+			</div>
+		</div>
+		<div class="col-xs-12">
+			<br />
+		<button class="btn btn-info btn-group-justified">Get Report</button>
+		</div>
+</div>
+<div class="row">
+<div class="col-xs-12" ui-view="" ng-if="chartAvailable">
+</div>
+</div>
+</div>
