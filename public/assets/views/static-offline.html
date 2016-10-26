@@ -1,0 +1,55 @@
+<div class="page-header">
+	<h1>Offline vs. Online Bookings</h1>
+</div>
+<div class="row">
+<form class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2" ng-submit="getOffline(fromDate.date, toDate.date)">
+	<div class="form-group row">
+
+		<div class="col-xs-6">
+			<label for="from-date">From: </label>
+			<div class="input-group">		
+				<input	name="from-date" type="text" class="form-control" 
+								uib-datepicker-popup="dd MMMM yyyy" ng-model="fromDate.date" 
+								is-open="fromDate.opened" datepicker-options="dateOptions"
+								ng-required="true" close-text="Close" 
+								alt-input-formats="altInputFormats"/>
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="dateInputOpen('fromDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+				</span>
+			</div>
+		</div>
+
+		<div class="col-xs-6">
+			<label for="to-date">To: </label>
+			<div class="input-group">		
+				<input	name="to-date" type="text" class="form-control" 
+								uib-datepicker-popup="dd MMMM yyyy" ng-model="toDate.date" 
+								is-open="toDate.opened" datepicker-options="dateOptions"
+								ng-required="true" close-text="Close" 
+								alt-input-formats="altInputFormats"/>
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="dateInputOpen('toDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+				</span>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="form-group row">
+			<div class="col-xs-11">
+				<label for="offlineType" class="col-xs-3"><input type="radio" name="offlineType" ng-model="offlineType" value="default" /> Default </label>
+				<label for="offlineType" class="col-xs-3"><input type="radio" name="offlineType" ng-model="offlineType" value="site" /> Site Comparison </label>
+				<label for="offlineType" class="col-xs-3"><input type="radio" name="offlineType" ng-model="offlineType" value="monthly" /> Monthly </label>
+				<label for="offlineType" class="col-xs-3"><input type="radio" name="offlineType" ng-model="offlineType" value="Weekly" /> Weekly </label>
+			</div>
+			<div class="col-xs-1">
+				<button class="btn btn-info pull-right">Get Report</button>
+			</div>
+	</div>
+</form>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2" ui-view="">
+	</div>
+</div>
+ 
